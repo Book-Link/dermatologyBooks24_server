@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // mongodb config
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.dllofcj.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.drs3jae.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 // const client = new MongoClient(uri, {
 //   useNewUrlParser: true,
@@ -26,30 +26,30 @@ const client = new MongoClient(uri, {
 
 client.connect((err) => {
   const termsConditionCollection = client
-    .db("onlineBook")
+    .db("dermatologybooks24")
     .collection("termsAndCondition");
 
   const frontPageTopImgCollection = client
-    .db("onlineBook")
+    .db("dermatologybooks24")
     .collection("topImg");
 
   const frontPageMiddleImgCollection = client
-    .db("onlineBook")
+    .db("dermatologybooks24")
     .collection("middleImg");
 
   const frontPageDisclaimerCollection = client
-    .db("onlineBook")
+    .db("dermatologybooks24")
     .collection("disclaimer");
 
   const displayBookBannerImg = client
-    .db("onlineBook")
+    .db("dermatologybooks24")
     .collection("displayBookImage");
 
   const authenticationCollection = client
-    .db("onlineBook")
+    .db("dermatologybooks24")
     .collection("authData");
 
-  const bookCollection = client.db("onlineBook").collection("books");
+  const bookCollection = client.db("dermatologybooks24").collection("books");
 
   // INSERT terms and condition data AT THE DATABASE
   app.post("/addTermsCondition", async (req, res) => {
